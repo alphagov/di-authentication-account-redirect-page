@@ -5,14 +5,16 @@
   "main": "index.html",
   "license": "MIT",
   "scripts": {
+    "build": "npm run govuk-frontend-setup && rm -rf dist && mkdir dist && cp -R ./assets ./index.css ./index.css.map ./index.html ./dist",
     "govuk-frontend-setup": "npm run compile-css && npm run copy-js",
     "compile-css": "sass ./index.scss ./index.css && rm -rf assets && mkdir assets && cp -R ./node_modules/govuk-frontend/govuk/assets/images ./node_modules/govuk-frontend/govuk/assets/fonts ./assets",
-    "copy-js": "rm -rf assets/js && mkdir assets/js && cp ./node_modules/govuk-frontend/govuk/all.js cp ./node_modules/govuk-frontend/govuk/all.js.map assets/js"
+    "copy-js": "rm -rf assets/js && mkdir assets/js && cp ./node_modules/govuk-frontend/govuk/all.js ./node_modules/govuk-frontend/govuk/all.js.map assets/js"
   },
   "dependencies": {
     "govuk-frontend": "^4.5.0"
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  }
+  },
+  "homepage": "https://alphagov.github.io/di-authentication-account-redirect-page/"
 }
