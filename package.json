@@ -1,0 +1,18 @@
+{
+  "name": "di-authentication-account-redirect-page",
+  "version": "1.0.0",
+  "description": "Repo for single page which provides redirect functionality from 'old' account management URL to new one",
+  "main": "index.html",
+  "license": "MIT",
+  "scripts": {
+    "govuk-frontend-setup": "npm run compile-css && npm run copy-js",
+    "compile-css": "sass ./index.scss ./index.css && rm -rf assets && mkdir assets && cp -R ./node_modules/govuk-frontend/govuk/assets/images ./node_modules/govuk-frontend/govuk/assets/fonts ./assets",
+    "copy-js": "rm -rf assets/js && mkdir assets/js && cp ./node_modules/govuk-frontend/govuk/all.js cp ./node_modules/govuk-frontend/govuk/all.js.map assets/js"
+  },
+  "dependencies": {
+    "govuk-frontend": "^4.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
