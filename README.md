@@ -11,3 +11,6 @@ The recommended way to preview this code locally is to use a live preview server
 In order for the page to render correctly, certain elements of the GOV.UK Frontend npm package are required. First run `npm i`. These can then be copied across into the application by running `npm run govuk-frontend-setup`. This in turn comprises two steps (spelled out in `package.json` under `scripts` - but please not that you do not need to run these directly):
 - `compile-css`: compiles index.scss into index.css and copies assets (fonts and images) from `node_modules` into an `assets` folder at the root of the project
 - `run copy-js`: copies base JavaScript from `node_modules` into an `assets/js` folder at the root of the project
+
+## Deployment
+Deployment is via GitHub Pages (see `.github/workflows/deploy.yml` for details of the job). The action will run whenever something is merged to `main` branch.

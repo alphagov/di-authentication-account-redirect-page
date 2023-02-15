@@ -26,15 +26,13 @@ jobs:
 
       - name: Install dependencies
         uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
       - run: npm install
 
       - name: Install SASS globally (to pre-compile CSS in following task)
         run: npm install -g sass
 
       - name: Package all required files into 'dist' folder e.g. compile CSS
-        run: npm run build
+        run: npm run github-actions-build
 
       - name: Use the Upload Artifact GitHub Action to upload 'dist' folder
         uses: actions/upload-pages-artifact@v1
