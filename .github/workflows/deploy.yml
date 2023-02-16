@@ -21,7 +21,13 @@ jobs:
   build:
     strategy: 
       matrix:
-        environment: [build, sandpit, dev, staging, integration, production]
+        environment: 
+        - build
+        - sandpit
+        - dev
+        - staging,
+        - integration
+        - production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
