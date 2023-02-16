@@ -5,13 +5,19 @@
   "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "github-actions-build": "npm run govuk-frontend-setup && rm -rf dist && mkdir dist && cp -R ./assets ./index.css ./index.css.map ./index.html ./dist",
-    "govuk-frontend-setup": "npm run compile-css && npm run copy-js",
-    "compile-css": "sass ./index.scss ./index.css && rm -rf assets && mkdir assets && cp -R ./node_modules/govuk-frontend/govuk/assets/images ./node_modules/govuk-frontend/govuk/assets/fonts ./assets",
-    "copy-js": "rm -rf assets/js && mkdir assets/js && cp ./node_modules/govuk-frontend/govuk/all.js ./node_modules/govuk-frontend/govuk/all.js.map assets/js"
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && mkdir dist/ && npm-run-all build:*",
+    "build:assets": "cp -rf node_modules/govuk-frontend/govuk/assets/ dist/",
+    "build:js": "cp -f node_modules/govuk-frontend/govuk/all.js dist/govuk.js",
+    "build:styles": "sass index.scss dist/index.css",
+    "build:html": "cp -f *.html dist/",
+    "serve": "npm run build && http-server dist/"
   },
-  "dependencies": {
-    "govuk-frontend": "^4.5.0"
-  },
-  "homepage": "https://alphagov.github.io/di-authentication-account-redirect-page/"
+  "homepage": "https://alphagov.github.io/di-authentication-account-redirect-page/",
+  "devDependencies": {
+    "govuk-frontend": "^4.5.0",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.58.1"
+  }
 }
