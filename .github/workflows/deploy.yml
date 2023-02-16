@@ -25,7 +25,7 @@ jobs:
         - build
         - sandpit
         - dev
-        - staging,
+        - staging
         - integration
         - production
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         run: npm run build
       - run: mkdir public
       - if: ${{ matrix.environment != 'production' }}
-        run: sed -i 's/home.account.gov.uk/home.${{ matrix.environment }}.account.gov.uk' dist/index.html
+        run: sed -i 's/home.account.gov.uk/home.${{ matrix.environment }}.account.gov.uk/' dist/index.html
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with: 
