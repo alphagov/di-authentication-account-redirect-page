@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - rough
+      - main
   # allows manual triggering from GitHub UI:
   workflow_dispatch:
 
